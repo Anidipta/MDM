@@ -52,7 +52,7 @@ const getIcon = (mimeType, filename) => {
 };
 
 export const DocumentCard = ({ doc, isSelected, onSelect, onPreview, onDelete }) => {
-    const downloadUrl = `${import.meta.env.VITE_SERVER_URL}/documents/${doc.id}/download`;
+    const downloadUrl = `${import.meta.env.VITE_SERVER_URL}documents/${doc.id}/download`;
 
     const handleCheckboxClick = (e) => {
         e.stopPropagation();

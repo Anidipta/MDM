@@ -7,7 +7,7 @@ import { UploadModal } from './components/UploadModal';
 import { PreviewPanel } from './components/PreviewPanel';
 import './index.css';
 
-const API_URL = `${import.meta.env.VITE_SERVER_URL}/documents`;
+const API_URL = `${import.meta.env.VITE_SERVER_URL}documents`;
 
 function App() {
   const [documents, setDocuments] = useState([]);
@@ -74,12 +74,12 @@ function App() {
       if (selectedDocIds.length === 0) return;
 
       if (selectedDocIds.length === 1) {
-        window.location.href = `${import.meta.env.VITE_SERVER_URL}/documents/${selectedDocIds[0]}/download`;
+        window.location.href = `${import.meta.env.VITE_SERVER_URL}documents/${selectedDocIds[0]}/download`;
         return;
       }
 
       const response = await axios.post(
-        `${import.meta.env.VITE_SERVER_URL}/documents/download-zip`,
+        `${import.meta.env.VITE_SERVER_URL}documents/download-zip`,
         { docIds: selectedDocIds },
         { responseType: 'blob' }
       );
@@ -100,7 +100,7 @@ function App() {
   const handleDelete = async (id) => {
     if (!window.confirm('Delete this document?')) return;
     try {
-      await axios.delete(`${import.meta.env.VITE_SERVER_URL}/documents/${id}`);
+      await axios.delete(`${import.meta.env.VITE_SERVER_URL}documents/${id}`);
       setSelectedDocIds(prev => prev.filter(i => i !== id));
       fetchDocuments();
     } catch (error) {
@@ -114,7 +114,7 @@ function App() {
     if (!window.confirm(`Delete ${selectedDocIds.length} documents?`)) return;
 
     try {
-      await axios.post(`${import.meta.env.VITE_SERVER_URL}/documents/delete-bulk`, {
+      await axios.post(`${import.meta.env.VITE_SERVER_URL}documents/delete-bulk`, {
         docIds: selectedDocIds
       });
       setSelectedDocIds([]);

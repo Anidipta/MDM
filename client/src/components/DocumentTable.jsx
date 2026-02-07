@@ -116,7 +116,7 @@ export const DocumentTable = ({ documents, selectedIds, onSelect, onPreview, onD
                                 <td onClick={(e) => e.stopPropagation()}>
                                     <div className="action-cell">
                                         <a
-                                            href={`${import.meta.env.VITE_SERVER_URL}/documents/${doc.id}/download`}
+                                            href={`${import.meta.env.VITE_SERVER_URL}documents/${doc.id}/download`}
                                             className="table-btn btn-download"
                                             title="Download"
                                             onClick={handleDownloadClick}

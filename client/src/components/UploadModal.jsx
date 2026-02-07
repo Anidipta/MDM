@@ -42,7 +42,7 @@ export const UploadModal = ({ isOpen, onClose, onSuccess }) => {
         files.forEach(file => formData.append('files', file));
 
         try {
-            await axios.post(`${import.meta.env.VITE_SERVER_URL}/documents`, formData, {
+            await axios.post(`${import.meta.env.VITE_SERVER_URL}documents`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 },

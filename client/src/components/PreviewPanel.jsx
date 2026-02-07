@@ -61,8 +61,8 @@ export const PreviewPanel = ({ doc, onClose }) => {
 
     if (!doc) return null;
 
-    const viewUrl = `${import.meta.env.VITE_SERVER_URL}/documents/${doc.id}/view`;
-    const downloadUrl = `${import.meta.env.VITE_SERVER_URL}/documents/${doc.id}/download`;
+    const viewUrl = `${import.meta.env.VITE_SERVER_URL}documents/${doc.id}/view`;
+    const downloadUrl = `${import.meta.env.VITE_SERVER_URL}documents/${doc.id}/download`;
 
     const ext = getFileExt(doc.title);
     const fileTypeName = getFileTypeName(doc.mimetype, doc.title);
