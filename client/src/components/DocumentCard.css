@@ -1,0 +1,192 @@
+.doc-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 0.75rem;
+    background: var(--color-surface);
+    border: 2px solid var(--color-teal);
+    border-radius: 6px;
+    width: 100%;
+    height: 100%;
+    min-width: 0;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.15s ease;
+    box-shadow: var(--pixel-shadow);
+}
+
+/* Corner accent */
+.doc-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 14px 14px 0;
+    border-color: transparent var(--color-coral) transparent transparent;
+}
+
+.doc-card:hover {
+    transform: translate(-2px, -2px);
+    border-color: var(--color-coral);
+    box-shadow: 5px 5px 0px rgba(255, 143, 133, 0.35);
+}
+
+.doc-card.selected {
+    border-color: var(--color-coral);
+    background: linear-gradient(135deg, rgba(255, 143, 133, 0.1) 0%, var(--color-surface) 100%);
+}
+
+/* Checkbox */
+.card-overlay-select {
+    position: absolute;
+    top: 0.4rem;
+    left: 0.4rem;
+    z-index: 10;
+    opacity: 0;
+    transition: opacity 0.15s;
+}
+
+.doc-card:hover .card-overlay-select,
+.doc-card.selected .card-overlay-select {
+    opacity: 1;
+}
+
+.card-checkbox {
+    width: 16px;
+    height: 16px;
+}
+
+/* Header */
+.doc-header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-bottom: 0.5rem;
+    flex-shrink: 0;
+}
+
+.icon-wrapper {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-navy);
+    border: 2px solid var(--color-teal);
+    border-radius: 4px;
+    font-size: 1rem;
+    color: var(--color-teal);
+    transition: all 0.15s;
+    flex-shrink: 0;
+}
+
+.doc-card:hover .icon-wrapper {
+    background: var(--color-coral);
+    border-color: var(--color-coral);
+    color: #1a2a4a;
+}
+
+/* Action Buttons */
+.doc-actions {
+    position: absolute;
+    bottom: 0.5rem;
+    right: 0.5rem;
+    display: flex;
+    gap: 0.35rem;
+    opacity: 0;
+    transform: translateY(4px);
+    transition: all 0.15s;
+    z-index: 10;
+}
+
+.doc-card:hover .doc-actions {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.action-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    border: 2px solid;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    text-decoration: none;
+    transition: all 0.1s;
+    cursor: pointer;
+    background: transparent;
+}
+
+.download-btn {
+    background: var(--color-coral);
+    border-color: #ffa99f;
+    color: #1a2a4a;
+    box-shadow: 2px 2px 0px rgba(255, 143, 133, 0.35);
+}
+
+.download-btn:hover {
+    transform: translate(-1px, -1px);
+    box-shadow: 3px 3px 0px rgba(255, 143, 133, 0.4);
+}
+
+.delete-btn {
+    background: #e57373;
+    border-color: #ef9a9a;
+    color: #1a2a4a;
+    box-shadow: 2px 2px 0px rgba(229, 115, 115, 0.35);
+}
+
+.delete-btn:hover {
+    transform: translate(-1px, -1px);
+    box-shadow: 3px 3px 0px rgba(229, 115, 115, 0.4);
+}
+
+/* Info */
+.doc-info {
+    margin-top: auto;
+    overflow: hidden;
+    min-width: 0;
+}
+
+.doc-title {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin: 0 0 0.3rem 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+    width: 100%;
+}
+
+.doc-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    font-size: 0.6rem;
+    color: var(--color-text-subtle);
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.meta-item {
+    display: flex;
+    align-items: center;
+    gap: 0.15rem;
+    padding: 0.1rem 0.3rem;
+    background: rgba(77, 212, 196, 0.1);
+    border: 1px solid rgba(77, 212, 196, 0.2);
+    border-radius: 3px;
+    white-space: nowrap;
+}
+
+.meta-item svg {
+    color: var(--color-coral);
+    font-size: 0.6rem;
+    flex-shrink: 0;
+}

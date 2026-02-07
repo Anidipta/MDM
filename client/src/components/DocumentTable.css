@@ -1,0 +1,115 @@
+.doc-table-wrapper {
+    padding: 0.5rem 0;
+}
+
+.doc-table-container {
+    overflow-x: auto;
+    border: 2px solid var(--color-teal);
+    background: var(--color-surface);
+    box-shadow: var(--pixel-shadow);
+}
+
+.doc-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+}
+
+.doc-table th {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    background: rgba(0, 168, 150, 0.15);
+    border-bottom: 2px solid var(--color-teal);
+    font-weight: 600;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-teal);
+}
+
+.doc-table td {
+    padding: 0.6rem 1rem;
+    border-bottom: 1px solid rgba(0, 168, 150, 0.15);
+    color: var(--color-text);
+    vertical-align: middle;
+}
+
+.doc-table tbody tr {
+    cursor: pointer;
+    transition: background 0.1s;
+}
+
+.doc-table tbody tr:hover {
+    background: rgba(255, 111, 97, 0.08);
+}
+
+.doc-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.doc-cell-name {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-weight: 500;
+}
+
+.doc-icon-small {
+    font-size: 1.1rem;
+    color: var(--color-coral);
+    flex-shrink: 0;
+}
+
+.doc-name-text {
+    max-width: 280px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.action-cell {
+    display: flex;
+    gap: 0.4rem;
+}
+
+.table-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    background: transparent;
+    color: var(--color-text-muted);
+    border: 1px solid var(--color-teal);
+    font-size: 1rem;
+    transition: all 0.1s;
+}
+
+.table-btn:hover {
+    background: rgba(0, 168, 150, 0.15);
+    color: var(--color-teal);
+}
+
+.btn-download:hover {
+    color: var(--color-coral);
+    background: rgba(255, 111, 97, 0.15);
+    border-color: var(--color-coral);
+}
+
+.btn-delete {
+    background: transparent;
+}
+
+.btn-delete:hover {
+    color: #dc3545;
+    background: rgba(220, 53, 69, 0.15);
+    border-color: #dc3545;
+}
+
+/* Monospace for data columns */
+.doc-table td:nth-child(3),
+.doc-table td:nth-child(4) {
+    font-family: monospace;
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+}

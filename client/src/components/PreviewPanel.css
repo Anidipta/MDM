@@ -1,0 +1,221 @@
+.preview-panel {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 420px;
+    height: 100vh;
+    background: var(--color-surface);
+    border-left: 2px solid var(--color-coral);
+    box-shadow: -4px 0px 0px rgba(255, 143, 133, 0.15);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    transform: translateX(100%);
+    transition: transform 0.2s ease;
+    overflow: hidden;
+}
+
+.preview-panel.open {
+    transform: translateX(0);
+}
+
+/* Header */
+.preview-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.875rem 1rem;
+    background: var(--color-navy);
+    border-bottom: 2px solid var(--color-teal);
+    flex-shrink: 0;
+}
+
+.preview-title {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--color-teal);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    margin: 0;
+}
+
+.btn-close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    background: transparent;
+    border: 2px solid var(--color-coral);
+    border-radius: 4px;
+    color: var(--color-coral);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.1s;
+}
+
+.btn-close:hover {
+    background: var(--color-coral);
+    color: var(--color-navy);
+}
+
+/* Content */
+.preview-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    overflow-y: auto;
+    gap: 0.875rem;
+}
+
+/* Viewer */
+.preview-viewer {
+    flex: 1;
+    min-height: 250px;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid var(--color-teal);
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.preview-embed,
+.preview-frame {
+    width: 100%;
+    flex: 1;
+    min-height: 280px;
+    border: none;
+    background: #fff;
+}
+
+.preview-placeholder {
+    flex: 1;
+    min-height: 180px;
+    background: var(--color-navy);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.preview-icon-large {
+    font-size: 3rem;
+    color: var(--color-coral);
+}
+
+.preview-icon-large.word-icon {
+    color: #4dd4c4;
+}
+
+.preview-message {
+    color: var(--color-text);
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin: 0;
+}
+
+.preview-type {
+    font-size: 0.75rem;
+    color: var(--color-coral);
+    font-family: 'JetBrains Mono', monospace;
+    background: rgba(255, 143, 133, 0.15);
+    padding: 0.25rem 0.6rem;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 143, 133, 0.3);
+}
+
+.preview-hint {
+    font-size: 0.75rem;
+    color: var(--color-text-subtle);
+    margin: 0;
+}
+
+/* Info */
+.preview-info {
+    background: var(--color-navy);
+    border: 2px solid var(--color-teal);
+    border-radius: 6px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0.75rem;
+    border-bottom: 1px solid rgba(77, 212, 196, 0.15);
+}
+
+.info-row:last-child {
+    border-bottom: none;
+}
+
+.info-label {
+    color: var(--color-teal);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    font-weight: 600;
+}
+
+.info-value {
+    font-size: 0.8rem;
+    color: #ffffff;
+    text-align: right;
+    max-width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+/* Download Button */
+.btn-download-panel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem;
+    background: var(--color-coral);
+    color: var(--color-navy);
+    border: 2px solid #ffa99f;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.9rem;
+    box-shadow: 3px 3px 0px rgba(255, 143, 133, 0.3);
+    transition: all 0.1s;
+    flex-shrink: 0;
+}
+
+.btn-download-panel:hover {
+    transform: translate(-1px, -1px);
+    box-shadow: 4px 4px 0px rgba(255, 143, 133, 0.35);
+}
+
+/* Backdrop */
+.preview-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(26, 42, 74, 0.75);
+    z-index: 999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s;
+}
+
+.preview-backdrop.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+@media (max-width: 500px) {
+    .preview-panel {
+        width: 100%;
+    }
+}

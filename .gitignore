@@ -1,0 +1,8 @@
+.env
+*.pdf
+
+node_modules
+.vscode
+.idea
+.DS_Store
+.agent
